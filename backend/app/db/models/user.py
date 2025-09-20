@@ -1,3 +1,5 @@
+# app/db/models/user.py
+
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Text
 from sqlalchemy.orm import relationship
 from app.db.base import Base
@@ -14,3 +16,8 @@ class User(Base):
     role = relationship("Role", back_populates="users")
 
     refresh_token = Column(Text, nullable=True)
+
+    @property
+    def role_name(self) -> str | None:
+        return self.role.name if self.role else None
+

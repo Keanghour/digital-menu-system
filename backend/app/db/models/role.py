@@ -1,3 +1,5 @@
+# app/db/models/role.py
+
 from sqlalchemy import Column, Integer, String, Table, ForeignKey
 from sqlalchemy.orm import relationship
 from app.db.base import Base
